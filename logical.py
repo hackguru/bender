@@ -51,8 +51,8 @@ def InitialWallaceWeights(iName, i, jName, j, k, toAdd, leftOvers):
 				nextInterim.append(interim[l]^interim[l+1])
 			else:
 				nextInterim.append(interim[l])
-			interim = nextInterim
-			count = len(interim)
+		interim = nextInterim
+		count = len(interim)
 	#print("Run {}:".format(k))
 	#print(toAdd)
 	#print(toReturn)
@@ -67,7 +67,7 @@ equalities = [
 	},
 	{
 		D['k1']:False,
-    },
+	},
 	{
 		D['k2']:False,
 	},
@@ -110,7 +110,7 @@ def reweighAndPrint():
 		equations.append((leftSide,rightSide))
 	for i,j in enumerate(equations):
 		if str(sympy.simplify_logic(j[0])) != str(sympy.simplify_logic(j[1])):
-			toPrint.append(("w:{:>2}{:>"+str(math.floor(shutil.get_terminal_size((80,20))[0]/2)-2-2-10)+"}").format(i,sympy.prety(sympy.simplify_logic(j[0])))+" = "+sympy.pretty(sympy.simplify_logic(j[1])))
+			toPrint.append(("w:{:>2}{:>"+str(math.floor(shutil.get_terminal_size((80,20))[0]/2)-2-2-10)+"}").format(i,sympy.pretty(sympy.simplify_logic(j[0])))+" = "+sympy.pretty(sympy.simplify_logic(j[1])))
 	print("\n".join(toPrint))
 	#print(sympy.simplify_logic(sympy.Equivalent(equations[-1][0],equations[-1][1])))
 	#print("Stisafiable models:")
